@@ -1,0 +1,139 @@
+<div class="d-flex justify-content-center m-5">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Crear Productos
+      </button>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center gap-3">
+        @for (item of products; track $index) {
+            <!-- product-card.component.html -->
+            <div class="card" style="width: 18rem; border-radius: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin: 10px;">
+                <img src="{{ item.imagen }}" class="card-img-top" alt="{{ item.nombre }}" style="border-top-left-radius: 15px; border-top-right-radius: 15px; height: 200px; object-fit: cover;">
+                <div class="card-body" style="text-align: center;">
+                  <h5 class="card-title" style="color: #4CAF50;">{{ item.nombre }}</h5>
+                  <p class="card-text" style="font-size: 14px; color: #757575;">{{ item.description }}</p>
+                  <p class="card-text" style="font-size: 16px; color: #333;"><strong>Precio: </strong>${{ item.precio }}</p>
+                  <div style="display: flex; justify-content: space-around;">
+                    <button (click)="eliminar(item._id)" class="btn btn-danger" style="flex: 1; margin-right: 5px;">Eliminar</button>
+                    <button (click)="editarProducto(item._id)" class="btn btn-success" data-bs-toggle="modal" [attr.data-bs-target]="'#'+item._id" style="flex: 1; margin-left: 5px;">Actualizar</button>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- Modal -->
+<div class="modal fade" id="{{item._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form [formGroup]="fomrEdit" class="form">
+                <p class="title">crea un producto </p>
+
+                <div class="flex">
+
+                </div>
+
+                <label for="nombre">nombre</label>
+                <input formControlName="nombre"   type="text" class="input">
+
+
+
+                <label for="precio">precio</label>
+                <input formControlName="precio" type="text" class="input">
+
+
+                <label for="imagen">imagen</label>
+                <input formControlName="imagen" type="text" class="input">
+
+
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+          <button (click)="actualizarProducto(item._id)" type="button"  class="btn btn-primary">actualizar!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+            }
+
+    </div>
+
+</div>
+
+
+
+
+@if (!products){
+    /* From Uiverse.io by SmookyDev */
+<div class="center_div">
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+</div>
+
+}
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form [formGroup]="formProduct" class="form">
+                <p class="title">crea un producto </p>
+
+                <div class="flex">
+
+                </div>
+
+                <label for="nombre">
+                    <input formControlName="nombre" for = nombre  placeholder="nombre producto" type="text" class="input">
+                    <span >nombre</span>
+                </label>
+
+                <label for="precio">
+                    <input formControlName="precio"  placeholder="precio " type="text" class="input">
+                    <span  >precio</span>
+                </label>
+                <label for="imagen">
+                    <input formControlName="imagen"   placeholder="link imagen" type="text" class="input">
+                    <span > imagen</span>
+                </label>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+          <button (click)="agregarProducto()" type="button"  class="btn btn-primary">crear!</button>
+        </div>
+      </div>
+    </div>
+  </div>

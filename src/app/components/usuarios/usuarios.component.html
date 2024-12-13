@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center ">
+
+    <div class="d-flex row">ng
+    @for (item of usuarios; track $index) {
+        <div class="user-card col-4">
+            <div class="user-avatar">
+              <img [src]="item.imagen" alt="{{item.nombre}} {{item.apellido}}">
+            </div>
+            <div class="user-info">
+              <h5 class="user-name">{{item.nombre}} {{item.apellido}}</h5>
+              <p class="user-email"><i class="fas fa-envelope"></i> {{item.email}}</p>
+              <p class="user-age"><i class="fas fa-birthday-cake"></i> Edad: {{item.edad}}</p>
+              <p class="user-status" [class.active]="item.activo"><i class="fas fa-check-circle"></i> {{item.activo ? 'Activo' : 'Inactivo'}}</p>
+              <p class="user-role"><i class="fas fa-user-tag"></i> {{item.roll}}</p>
+              <div class="user-actions">
+                <button (click)="obtenerUnUsuario(item._id)" type="button" class="btn btn-success" data-bs-toggle="modal" [attr.data-bs-target]="'#'+item._id">
+                  Editar
+                </button>
+                <button (click)="eliminar(item._id)" class="btn btn-danger">
+                  Eliminar
+                </button>
+              </div>
+            </div>
+          </div>
+
+         <!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="{{item._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1  class="modal-title fs-5" id="exampleModalLabel">Editar usuario</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formEdit" class="d-flex row">
+                <label for="">nuevo nombre</label>
+                <input formControlName="nombre" type="text">
+            <label for="">nuevo apellido</label>
+                <input formControlName="apellido" type="text">
+            <label for="">nuevo email</label>
+                <input formControlName="email" type="email">
+            <label for="">agregar nueva imagen</label>
+                <input formControlName="imagen" type="text">
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" (click)="actualizar(item._id)" class="btn btn-primary">actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+       }
+</div>
+
+</div>
+
