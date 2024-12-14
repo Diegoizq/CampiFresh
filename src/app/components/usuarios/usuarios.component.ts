@@ -31,7 +31,7 @@ userService = inject(UsuarioService)
     usuarios!: any
 
     ngOnInit (){
-        if (sessionStorage.getItem('token')== undefined||null){
+        if (sessionStorage.getItem('info')== undefined||null){
             this.router.navigate(['login'])
         }
 

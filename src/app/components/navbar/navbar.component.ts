@@ -13,22 +13,34 @@ import { Router, RouterLink } from '@angular/router';
 export class NavbarComponent {
     constructor(private router : Router){}
     estado!: boolean
+    roll: boolean = false
 
 ngOnInit (){
-    if (sessionStorage.getItem('token')) {
-        this.estado = true
+    const info = JSON.parse(sessionStorage.getItem('info')||"");
 
+    if (info && info.token) {
+        this.estado = true;
     } else {
-        this.estado = false
-
+        this.estado = false;
     }
+
+    if (info && info.roll) {
+        if (info.roll === "admin") {
+            this.roll = true;
+        } else {
+            this.roll = false;
+        }
+    } else {
+        this.roll = false;
+    }
+
 }
 ngDoCheck(){
     this.ngOnInit()
 }
 
 logout() {
-    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('info')
     this.router.navigate(['login'])
     this.ngOnInit()
 }

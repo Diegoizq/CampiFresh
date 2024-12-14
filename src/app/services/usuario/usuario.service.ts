@@ -6,11 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class UsuarioService {
   apiUrl: string =  "http://localhost:3000/api"
-  token:any= sessionStorage.getItem('token')
+  data: any = JSON.parse(sessionStorage.getItem("info")||"");
   constructor(private http : HttpClient) { }
 
     traerUsuarios (){
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.data.token}`)
         return this.http.get(`${this.apiUrl}/usuarios`,{headers})
     }
     eliminarUsuario (id: string){
@@ -28,5 +28,8 @@ export class UsuarioService {
     iniciarSesion(body: any){
         return this.http.post(`${this.apiUrl}/inicioSesion`, body)
     }
-
+    //  desencriptarToken (){
+    //     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+    //     return this.http.get(`${this.apiUrl}/infoToken`,{headers})
+    // }
 }
