@@ -6,8 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class UsuarioService {
   apiUrl: string =  "http://localhost:3000/api"
-  data: any = JSON.parse(sessionStorage.getItem("info")||"");
-  constructor(private http : HttpClient) { }
+  data: any
+  constructor(private http : HttpClient) {
+    this.data = JSON.parse(sessionStorage.getItem("info")||"{}");
+   }
 
     traerUsuarios (){
         const headers = new HttpHeaders().set('Authorization', `Bearer ${this.data.token}`)

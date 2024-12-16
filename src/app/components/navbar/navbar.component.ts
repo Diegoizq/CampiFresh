@@ -12,11 +12,11 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class NavbarComponent {
     constructor(private router : Router){}
-    estado!: boolean
+    estado: boolean = false
     roll: boolean = false
 
 ngOnInit (){
-    const info = JSON.parse(sessionStorage.getItem('info')||"");
+    const info = JSON.parse(sessionStorage.getItem('info')||"{}");
 
     if (info && info.token) {
         this.estado = true;

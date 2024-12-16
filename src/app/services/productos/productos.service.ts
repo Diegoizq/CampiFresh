@@ -7,10 +7,13 @@ import { Injectable } from '@angular/core';
 export class ProductosService {
       token:any= sessionStorage.getItem('token')
       apiUrl: string =  "http://localhost:3000/api"
-      constructor(private http : HttpClient) { }
+      data: any
+  constructor(private http : HttpClient) {
+    this.data = JSON.parse(sessionStorage.getItem("info")||"{}");
+   }
 
       getProductos() {
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`)
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.data.token}`)
         return this.http.get(`${this.apiUrl}/productos`, {headers})
       }
       deleteProductos(id: string){
@@ -23,8 +26,6 @@ export class ProductosService {
         return this.http.put(`${this.apiUrl}/actualizarProducto/${id}`,body )
 
      }
-     getoneproduct(id: string,){
-        return this.http.get(`${this.apiUrl}/producto/${id}`)
+     
 
-     }
   }

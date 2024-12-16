@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   selector: 'app-productos',
   standalone: true,
   imports: [
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
@@ -36,9 +36,9 @@ export class ProductosComponent {
 
     }
     ngOnInit(){
-        if (sessionStorage.getItem('token') == undefined|| null) {
-            this.router.navigate(['login'])
-        }
+        // if (sessionStorage.getItem('info') == undefined|| null) {
+        //     this.router.navigate(['login'])
+        // }
             this.pruductosService.getProductos().subscribe({
                 next:(resApi: any)=>{
                     this.products= resApi
