@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
     userService= inject(UsuarioService)
     formLogin!: FormGroup
@@ -37,7 +38,7 @@ export class LoginComponent {
 
     //             }
     //         })
-    // }
+    // }git
 
     login(){
 
@@ -51,7 +52,9 @@ export class LoginComponent {
                 // sessionStorage.setItem('token', token)
                 const info = { token: resApi.token, roll: resApi.user };
                 sessionStorage.setItem("info", JSON.stringify(info));
-               
+
+                this.router.navigate(['home'])
+
 
                 // this.desecriptarToken()
             Swal.fire({
@@ -63,6 +66,7 @@ export class LoginComponent {
                         })
 
                 },
+
                 error:(error: any)=>{
 
                     Swal.fire({

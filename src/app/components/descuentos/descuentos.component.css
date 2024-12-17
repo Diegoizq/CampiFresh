@@ -1,0 +1,233 @@
+.discount-bar {
+    background: linear-gradient(90deg, #4CAF50, #8BC34A, #CDDC39); /* Degradado verde */
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 600px;
+  }
+
+  .discount-bar h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+/* ofertas */
+.offer-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .offer-image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  .offer-details {
+    padding: 15px;
+    color: #2E7D32;
+  }
+
+  .offer-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .offer-details p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: #555;
+  }
+
+  .offer-button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .offer-button:hover {
+    background-color: #388E3C;
+  }
+  .free-delivery-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #f0fff0; /* Verde claro */
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: 20px auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .free-delivery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .delivery-icon {
+    font-size: 3rem;
+  }
+  .wholesale-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff8e1; /* Amarillo suave */
+    border: 2px solid #ff9800; /* Naranja brillante */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: 20px auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .wholesale-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .wholesale-icon {
+    font-size: 3rem;
+    color: #ff9800; /* Naranja */
+    margin-bottom: 15px;
+  }
+
+  .wholesale-details h2 {
+    font-size: 1.5rem;
+    color: #e65100; /* Naranja oscuro */
+    margin-bottom: 10px;
+  }
+
+  .wholesale-details p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .wholesale-button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .wholesale-button:hover {
+    background-color: #e65100;
+  }
+  .first-order-card {
+    background: linear-gradient(135deg, #4CAF50, #81C784);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .first-order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .card-content p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .coupon-code {
+    font-size: 1.2rem;
+    background: #ffffff;
+    color: #4CAF50;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .free-shipping-fixed-card {
+    background: #f0fff0; /* Verde claro */
+    border: 2px solid #4CAF50; /* Verde oscuro */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    width: 350px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .free-shipping-fixed-card h2 {
+    font-size: 1.5rem;
+    color: #2E7D32; /* Verde principal */
+    margin-bottom: 10px;
+  }
+
+  .free-shipping-fixed-card p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .banner {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-weight: bold;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+

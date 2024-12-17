@@ -26,6 +26,8 @@ export class ProductosService {
         return this.http.put(`${this.apiUrl}/actualizarProducto/${id}`,body )
 
      }
-     
+     getoneproduct(id: string,){
+        return this.http.get(`${this.apiUrl}/producto/${id}`)
+     }
 
   }
