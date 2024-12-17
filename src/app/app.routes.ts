@@ -6,6 +6,7 @@ import { Error404Component } from './components/public/error404/error404.compone
 import { ProductosComponent } from './components/public/productos/productos.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { ProductosAdminComponent } from './dashboard/productos-admin/productos-admin.component';
+import { DashboardUserProductsComponent } from './components/dashboard-user-products/dashboard-user-products.component';
 
 
 export const routes: Routes = [
@@ -16,6 +17,7 @@ export const routes: Routes = [
     {path: "productosAdm", component:ProductosAdminComponent},
     {path: "registrate", component:RegistrateComponent},
     {path: "usuarios", component:UsuariosComponent},
+    {path: "dashboard", component:DashboardUserProductsComponent},
     {path: "404", component:Error404Component},
     {path: "**",pathMatch: "full", redirectTo:"404"}
 ];

@@ -54,7 +54,9 @@ menuItems = [
   { path: '/sobre-nosotros', title: 'Sobre Nosotros' },
   { path: '/contacto', title: 'Contacto' },
   { path: '/login', title: 'Iniciar Sesión' },
-  { path: '/productosAdm', title: 'Productos Admin' }
+  { path: '/productosAdm', title: 'Productos Admin' },
+  { path: '/dashboard', title: 'Dashboard' }
+
 ];
 
 toggleMenu() {

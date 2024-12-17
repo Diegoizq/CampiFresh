@@ -1,0 +1,272 @@
+:host {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+}
+
+:root {
+    --sidebar-width: 250px;
+    --header-height: 70px;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+}
+
+app-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    z-index: 1000;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    position: relative;
+    width: calc(100% - 250px);
+}
+
+/* Navbar */
+.dashboard-nav {
+    height: 70px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-left, .nav-center, .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-center {
+    flex: 1;
+    max-width: 500px;
+}
+
+.search-bar {
+    width: 100%;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 2.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.search-bar i {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+.nav-link {
+    color: #666;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #4CAF50;
+}
+
+.notifications {
+    position: relative;
+    cursor: pointer;
+}
+
+.notifications .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.nav-divider {
+    width: 1px;
+    height: 30px;
+    background-color: #e0e0e0;
+}
+
+.profile-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.profile-menu img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.profile-role {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.content-area {
+    padding: 2rem;
+    min-height: calc(100vh - 70px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .nav-center {
+        display: none;
+    }
+
+    .profile-info {
+        display: none;
+    }
+
+    .dashboard-nav {
+        padding: 0 1rem;
+    }
+}
+
+/* Section Headers */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Tables */
+.table-responsive {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Product and User Cells */
+.product-cell, .user-cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.product-cell img, .user-cell img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+/* Badges and Buttons */
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.badge.bg-success {
+    background-color: rgba(76, 175, 80, 0.1) !important;
+    color: #4CAF50;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #43a047;
+    border-color: #43a047;
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.875rem;
+}
+
+
+
