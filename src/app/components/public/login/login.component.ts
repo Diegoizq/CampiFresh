@@ -51,7 +51,7 @@ export class LoginComponent {
                 // sessionStorage.setItem('token', token)
                 const info = { token: resApi.token, roll: resApi.user };
                 sessionStorage.setItem("info", JSON.stringify(info));
-               
+
 
                 // this.desecriptarToken()
             Swal.fire({

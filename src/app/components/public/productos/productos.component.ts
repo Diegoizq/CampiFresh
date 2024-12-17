@@ -2,20 +2,22 @@ import { Component, inject } from '@angular/core';
 import { ProductosService } from '../../../services/productos/productos.service';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ButtonCarritoService } from '../../../services/button-carrito/button-carrito.service';
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [
-    ReactiveFormsModule
-  ],
+  imports: [ ReactiveFormsModule,CommonModule ],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
 })
 export class ProductosComponent {
-    products!: any
+    products: any[]=[]
+    productosFiltrados: any[] = [];
     pruductosService = inject(ProductosService)
+    private carritoService = inject(ButtonCarritoService)
     formProduct!: FormGroup
     fomrEdit!: FormGroup
 
@@ -35,22 +37,40 @@ export class ProductosComponent {
 
 
     }
-    ngOnInit(){
-        // if (sessionStorage.getItem('info') == undefined|| null) {
-        //     this.router.navigate(['login'])
-        // }
-            this.pruductosService.getProductos().subscribe({
-                next:(resApi: any)=>{
-                    this.products= resApi
-                },
-                error:(error: any)=>{
-                    console.log(error);
+    ngOnInit() {
+        this.pruductosService.getAll().subscribe({
+          next: (resApi: any) => {
+            console.log(resApi);
+            this.products = resApi;
+            this.productosFiltrados = resApi; // Inicialmente mostramos todos
+          },
+          error: () => {
+            console.error("Error al cargar los productos");
+          }
+        });
+      }
+
+      // Método para filtrar por tipo
+      filtrarPorTipo(tipo: string): void {
+        if (tipo === 'todos') {
+          this.productosFiltrados = this.products; // Mostrar todos los productos
+        } else {
+          this.productosFiltrados = this.products.filter(
+            (producto: any) => producto.tipo.toLowerCase() === tipo.toLowerCase()
+          );
+        }
+      }
+
+      agregarCarrito(producto:any){
+        console.log("producto a agregaar", producto);
+
+        this.carritoService.agregarProducto(producto)
+        alert("producto agregado")
+
+      }
 
 
-                }
-            })
 
-    }
     eliminar(id:string){
         Swal.fire({
             title: "Are you sure?",
@@ -110,6 +130,7 @@ export class ProductosComponent {
 
         }})
     }
+
     editarProducto(id: string){
         this.pruductosService.getoneproduct(id).subscribe({
             next:(resApi: any)=>{

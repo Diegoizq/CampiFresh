@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
@@ -5,8 +6,7 @@ import { Router, RouterLink } from '@angular/router';
   selector: 'app-navbar',
   standalone: true,
   imports: [
-    RouterLink
-  ],
+    RouterLink, CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -44,4 +44,22 @@ logout() {
     this.router.navigate(['login'])
     this.ngOnInit()
 }
+
+
+isMenuOpen: boolean = false;  // Añade esta línea
+
+menuItems = [
+  { path: '/inicio', title: 'Inicio' },
+  { path: '/productos', title: 'Productos' },
+  { path: '/sobre-nosotros', title: 'Sobre Nosotros' },
+  { path: '/contacto', title: 'Contacto' },
+  { path: '/login', title: 'Iniciar Sesión' },
+  { path: '/productosAdm', title: 'Productos Admin' }
+];
+
+toggleMenu() {
+  this.isMenuOpen = !this.isMenuOpen;
 }
+
+}
+
