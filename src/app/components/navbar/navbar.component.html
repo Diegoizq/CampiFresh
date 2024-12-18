@@ -16,12 +16,31 @@
       <!-- Menú -->
       <ul [class.active]="isMenuOpen">
         <li *ngFor="let item of menuItems">
-          <a [routerLink]="[item.path]"
+          <a *ngIf="roll && item.path!=='login'" [routerLink]="[item.path]"
              routerLinkActive="active"
              (click)="isMenuOpen = false">
             {{item.title}}
+
           </a>
+          <a *ngIf="!roll && item.path!='/dashboard'" [routerLink]="[item.path]"
+             routerLinkActive="active"
+             (click)="isMenuOpen = false">
+            {{item.title}}
+
+          </a>
+
+
+
+
         </li>
+
+        @if (!estado) {
+            <a routerLink="/login">Inicio Sesion</a>
+
+        }
+        @if(estado){
+            <a (click)="logout()">logout</a>
+        }
       </ul>
     </nav>
   </header>

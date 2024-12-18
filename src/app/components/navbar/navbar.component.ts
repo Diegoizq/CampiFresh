@@ -51,13 +51,17 @@ isMenuOpen: boolean = false;  // Añade esta línea
 menuItems = [
   { path: '/inicio', title: 'Inicio' },
   { path: '/productos', title: 'Productos' },
+
+  { path: '/descuentos', title: 'Promociones' },
   { path: '/sobre-nosotros', title: 'Sobre Nosotros' },
-  { path: '/contacto', title: 'Contacto' },
-  { path: '/login', title: 'Iniciar Sesión' },
-  { path: '/productosAdm', title: 'Productos Admin' },
+//   { path: '/login', title: 'Iniciar Sesión' },
+
+//   { path: '/productosAdm', title: 'Productos Admin' },
   { path: '/dashboard', title: 'Dashboard' }
 
+
 ];
+
 
 toggleMenu() {
   this.isMenuOpen = !this.isMenuOpen;
