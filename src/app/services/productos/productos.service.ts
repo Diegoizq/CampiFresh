@@ -15,26 +15,25 @@ export class ProductosService {
    }
 
       getProductos() {
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.data.token}`)
-        return this.http.get(`${this.apiUrl}`, {headers})
+        return this.http.get(`${this.apiUrlP}`)
       }
 
       getAll(): Observable <any> {
         return this.http.get<any[]>(this.apiUrlP);
       }
       deleteProductos(id: string){
-        return this.http.delete(`${this.apiUrl}/eliminarProducto/${id}`)
+        return this.http.delete(`${this.apiUrlP}/${id}`)
       }
      addProductos(body: any) {
         return this.http.post(`${this.apiUrl}/crearProducto`, body)
      }
      updateproductos(id: string, body: any){
-        return this.http.put(`${this.apiUrl}/actualizarProducto/${id}`,body )
+        return this.http.put(`${this.apiUrlP}/${id}`,body )
 
      }
 
      getoneproduct(id: string,){
-        return this.http.get(`${this.apiUrl}/producto/${id}`)
+        return this.http.get(`${this.apiUrlP}/${id}`)
      }
 
 
