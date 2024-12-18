@@ -7,6 +7,7 @@ import { ProductosComponent } from './components/public/productos/productos.comp
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { ProductosAdminComponent } from './dashboard/productos-admin/productos-admin.component';
 import { DashboardUserProductsComponent } from './components/dashboard-user-products/dashboard-user-products.component';
+import { DescuentosComponent } from './components/descuentos/descuentos.component';
 
 
 export const routes: Routes = [
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path: "login", component:LoginComponent},
     {path: "productos", component:ProductosComponent},
     {path: "productosAdm", component:ProductosAdminComponent},
+    {path: "promociones", component:DescuentosComponent},
     {path: "registrate", component:RegistrateComponent},
     {path: "usuarios", component:UsuariosComponent},
     {path: "dashboard", component:DashboardUserProductsComponent},

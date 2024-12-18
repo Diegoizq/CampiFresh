@@ -52,7 +52,7 @@ menuItems = [
   { path: '/inicio', title: 'Inicio' },
   { path: '/productos', title: 'Productos' },
 
-  { path: '/descuentos', title: 'Promociones' },
+  { path: '/promociones', title: 'Promociones' },
   { path: '/sobre-nosotros', title: 'Sobre Nosotros' },
 //   { path: '/login', title: 'Iniciar Sesión' },
 
