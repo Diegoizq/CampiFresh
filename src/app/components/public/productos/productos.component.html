@@ -1,98 +1,42 @@
-<div class="d-flex justify-content-center m-5">
+<div class="products-filters">
+    <!-- Botones para aplicar filtros -->
+    <button (click)="filtrarPorTipo('todos')" class="filter-button active">
+      Todos
+    </button>
+    <button (click)="filtrarPorTipo('fruta')" class="filter-button">
+      Frutas
+    </button>
+    <button (click)="filtrarPorTipo('verdura')" class="filter-button">
+      Verduras
+    </button>
+  </div>
 
-</div>
-
-<div class="container">
-    <div class="row justify-content-center gap-3">
-        @for (item of products; track $index) {
-            <!-- card de productos -->
-            <div class="card">
-                <img src="{{ item.imagen }}" class="card-img-top" alt="{{ item.nombre }}">
-                <div class="card-body">
-                  <h5 class="card-title">{{ item.nombre }}</h5>
-                  <p class="card-text description">{{ item.description }}</p>
-                  <p class="card-text price"><strong>Precio: </strong>${{ item.precio }}</p>
-                  <div class="button-container">
-                    <button class="btn btn-success"><i class="fas fa-shopping-cart"></i> Añadir al Carrito</button>
-                    
-                  </div>
-                </div>
-                </div>
-
-
-
-
-
-
-
-
-            }
-
-    </div>
-
-</div>
-
-
-
-
-@if (!products){
-    /* From Uiverse.io by SmookyDev */
-<div class="center_div">
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
-</div>
-
-}
-
-
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-
-            <form [formGroup]="formProduct" class="form">
-                <p class="title">crea un producto </p>
-
-                <div class="flex">
-
-                </div>
-
-                <label for="nombre">
-                    <input formControlName="nombre" for = nombre  placeholder="nombre producto" type="text" class="input">
-                    <span >nombre</span>
-                </label>
-
-                <label for="precio">
-                    <input formControlName="precio"  placeholder="precio " type="text" class="input">
-                    <span  >precio</span>
-                </label>
-                <label for="imagen">
-                    <input formControlName="imagen"   placeholder="link imagen" type="text" class="input">
-                    <span > imagen</span>
-                </label>
-
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
-          <button (click)="agregarProducto()" type="button"  class="btn btn-primary">crear!</button>
+  <!-- Contenedor de productos -->
+  <div class="d-flex flex-wrap justify-content-center mx-5">
+    <!-- Usamos *ngFor para renderizar los productos filtrados -->
+    <div
+      *ngFor="let producto of productosFiltrados"
+      class="product-card m-3"
+    >
+      <div class="product-image-container">
+        <img
+          [src]="producto.imagen"
+          [alt]="producto.nombre"
+          class="product-image"
+        />
+        <span class="product-badge">Oferta</span>
+      </div>
+      <div class="product-content">
+        <h3 class="product-title">{{ producto.nombre }}</h3>
+        <p class="product-description">{{ producto.tipo }}</p>
+        <p class="product-description">{{ producto.descripcion }}</p>
+        <div class="product-details">
+          <span class="product-price">
+            <span class="currency">$</span>{{ producto.precio }}
+          </span>
+          <button class="add-to-cart" (click)="agregarCarrito(producto)">
+            <i class="fas fa-shopping-cart"></i>Añadir
+          </button>
         </div>
       </div>
     </div>

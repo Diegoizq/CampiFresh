@@ -38,23 +38,37 @@ export class LoginComponent {
 
     //             }
     //         })
+<<<<<<< HEAD
     // }git
+=======
+    // }
+    ngOnInit(){
+        if (sessionStorage.getItem('info') ) {
+            this.router.navigate(['/home'])
+>>>>>>> main
 
+        }
+    }
     login(){
 
 
         if (this.formLogin.valid) {
             this.userService.iniciarSesion(this.formLogin.value).subscribe({
                 next:(resApi: any)=>{
+
                     let token= resApi
 
                     console.log(resApi);
                 // sessionStorage.setItem('token', token)
                 const info = { token: resApi.token, roll: resApi.user };
                 sessionStorage.setItem("info", JSON.stringify(info));
+<<<<<<< HEAD
 
                 this.router.navigate(['home'])
 
+=======
+                this.ngOnInit()
+>>>>>>> main
 
                 // this.desecriptarToken()
             Swal.fire({

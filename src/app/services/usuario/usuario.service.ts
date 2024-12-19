@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UsuarioService {
-  apiUrl: string =  "http://localhost:3000/api"
+  apiUrl: string =  "http://localhost:3009/api"
   data: any
   constructor(private http : HttpClient) {
     this.data = JSON.parse(sessionStorage.getItem("info")||"{}");
