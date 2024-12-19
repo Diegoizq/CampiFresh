@@ -53,7 +53,7 @@ menuItems = [
   { path: '/productos', title: 'Productos' },
 
   { path: '/promociones', title: 'Promociones' },
-  { path: '/sobre-nosotros', title: 'Sobre Nosotros' },
+  { path: '/sobrenosotros', title: 'Sobre Nosotros' },
 //   { path: '/login', title: 'Iniciar Sesión' },
 
 //   { path: '/productosAdm', title: 'Productos Admin' },
