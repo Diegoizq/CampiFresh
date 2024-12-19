@@ -14,7 +14,7 @@
       </button>
 
       <!-- Menú -->
-      <ul [class.active]="isMenuOpen">
+      <ul [class.active]="isMenuOpen" >
         <li *ngFor="let item of menuItems">
           <a *ngIf="roll && item.path!=='login'" [routerLink]="[item.path]"
              routerLinkActive="active"
@@ -34,13 +34,15 @@
 
         </li>
 
-        @if (!estado) {
-            <a routerLink="/login">Inicio Sesion</a>
+        <div >
+            @if (!estado) {
+                <a routerLink="/login">Inicio Sesion</a>
 
-        }
-        @if(estado){
-            <a (click)="logout()">logout</a>
-        }
+            }
+            @if(estado){
+                <a (click)="logout()">logout</a>
+            }
+        </div>
       </ul>
     </nav>
   </header>
