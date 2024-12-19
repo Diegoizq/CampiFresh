@@ -91,6 +91,22 @@ logout() {
 
   // Añade esta línea
 
+<<<<<<< HEAD
+=======
+menuItems = [
+  { path: '/inicio', title: 'Inicio' },
+  { path: '/productos', title: 'Productos' },
+
+  { path: '/promociones', title: 'Promociones' },
+  { path: '/sobrenosotros', title: 'Sobre Nosotros' },
+//   { path: '/login', title: 'Iniciar Sesión' },
+
+//   { path: '/productosAdm', title: 'Productos Admin' },
+  { path: '/dashboard', title: 'Dashboard' }
+
+
+];
+>>>>>>> main
 
 
 toggleMenu() {

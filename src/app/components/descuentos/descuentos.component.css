@@ -1,7 +1,7 @@
 /* Estilo General */
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Adamina', serif;
     background: linear-gradient(to bottom, #f0f8ff, #e6ffe6); /* Degradado claro */
     color: #333;
   }
@@ -17,12 +17,23 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
 
-  .discount-bar h1 {
-    margin: 0;
-    font-size: 2.2rem;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  .discount-bar {
+    background: linear-gradient(to bottom, #388e3c, #66bb6a, #a5d6a7); /* Degradado de verdes */
+    text-align: center;
+    padding: 0 15px; /* Espaciado horizontal, ajustado para evitar conflictos con la altura */
+    height: 65px; /* Altura fija */
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra moderada */
+    color: #ffffff; /* Texto en blanco */
+    font-size: 1.2rem; /* Tamaño de fuente legible */
+    font-weight: 500; /* Texto ligeramente más grueso */
+    line-height: 60px; /* Alineación vertical del texto */
+    overflow: hidden; /* Asegura que el contenido no desborde */
   }
+
+
 
   /* Contenedor Principal */
   .cards-container {
@@ -83,3 +94,10 @@ body {
     margin-bottom: 10px;
     color: #2196F3; /* Azul brillante */
   }
+.rer{
+    margin: 0;
+    font-family: 'Adamina', serif;
+    background: linear-gradient(to bottom, #f0f8ff, #e6ffe6); /* Degradado claro */
+    color: #333;
+
+}

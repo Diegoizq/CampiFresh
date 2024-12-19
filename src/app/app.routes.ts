@@ -8,6 +8,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { ProductosAdminComponent } from './dashboard/productos-admin/productos-admin.component';
 import { DashboardUserProductsComponent } from './components/dashboard-user-products/dashboard-user-products.component';
 import { DescuentosComponent } from './components/descuentos/descuentos.component';
+import { SobrenosotrosComponent } from './components/sobrenosotros/sobrenosotros.component';
 
 
 export const routes: Routes = [
@@ -19,6 +20,7 @@ export const routes: Routes = [
     {path: "promociones", component:DescuentosComponent},
     {path: "registrate", component:RegistrateComponent},
     {path: "usuarios", component:UsuariosComponent},
+    {path: "sobrenosotros", component:SobrenosotrosComponent},
     {path: "dashboard", component:DashboardUserProductsComponent},
     {path: "404", component:Error404Component},
     {path: "**",pathMatch: "full", redirectTo:"404"}
