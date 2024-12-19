@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 /* Reset global para eliminar márgenes y rellenos predeterminados */
 * {
     margin: 0;
@@ -7,7 +15,7 @@
 
   /* Estilos para el body */
   body {
-    font-family: 'Arial', sans-serif;
+    font-family: Andamina ;
     line-height: 1.6;
     background-color: #f4f4f4;
   }
@@ -15,7 +23,7 @@
   /* Sección de bienvenida */
   .home {
     height: 100vh; /* Ocupa toda la altura de la pantalla */
-    background-image: url('https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'); /* Imagen de fondo */
+     /* Imagen de fondo */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -160,3 +168,7 @@
     }
   }
 
+  .letras{
+    font-family: Adamina ;
+
+  }
