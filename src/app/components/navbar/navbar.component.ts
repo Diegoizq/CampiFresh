@@ -57,7 +57,7 @@ export class NavbarComponent {
         if (!this.estado) {
             this.menuItems = [
                 ...baseItems,
-                { path: '/login', title: 'Iniciar Sesión' }
+
             ];
         }
         // Si está logueado como admin

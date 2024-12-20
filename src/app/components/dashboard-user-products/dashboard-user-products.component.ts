@@ -272,7 +272,7 @@ export class DashboardUserProductsComponent {
                 }
             })
         }
-        
+
   }
 
 
