@@ -4,6 +4,7 @@
       <a [routerLink]="['/inicio']" class="logo">
         <img src="image-Photoroom.png" alt="Logo">
         <span>CampiFresh</span>
+        
       </a>
 
       <!-- Botón hamburguesa -->
@@ -14,14 +15,35 @@
       </button>
 
       <!-- Menú -->
-      <ul [class.active]="isMenuOpen">
+      <ul [class.active]="isMenuOpen" >
         <li *ngFor="let item of menuItems">
-          <a [routerLink]="[item.path]"
+          <a *ngIf="roll && item.path!=='login'" [routerLink]="[item.path]"
              routerLinkActive="active"
              (click)="isMenuOpen = false">
             {{item.title}}
+
           </a>
+          <a *ngIf="!roll && item.path!='/dashboard'" [routerLink]="[item.path]"
+             routerLinkActive="active"
+             (click)="isMenuOpen = false">
+            {{item.title}}
+
+          </a>
+
+
+
+
         </li>
+
+        <div >
+            @if (!estado) {
+                <a routerLink="/login">Inicio Sesion</a>
+
+            }
+            @if(estado){
+                <a (click)="logout()">logout</a>
+            }
+        </div>
       </ul>
     </nav>
   </header>

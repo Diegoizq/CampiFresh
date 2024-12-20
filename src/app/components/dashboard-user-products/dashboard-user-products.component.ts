@@ -1,10 +1,12 @@
 import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductosService } from '../../services/productos/productos.service';
 import Swal from 'sweetalert2';
+import { UsuarioService } from '../../services/usuario/usuario.service';
+
 
 @Component({
   selector: 'app-dashboard-user-products',
@@ -16,9 +18,12 @@ import Swal from 'sweetalert2';
 export class DashboardUserProductsComponent {
     products: any[]=[]
     pruductosService = inject(ProductosService)
+    userService = inject(UsuarioService)
     formEdit!: FormGroup
+    formEditUsers!: FormGroup
+    usuarios:any[]=[]
 
-    constructor(private fb: FormBuilder){
+    constructor(private fb: FormBuilder,private router : Router){
         this.formEdit= this.fb.group({
             nombre:["", []],
             tipo:[" ",[]],
@@ -28,6 +33,13 @@ export class DashboardUserProductsComponent {
             imagen:[" ", []]
 
         })
+        this.formEditUsers=this.fb.group({
+            nombre :['', []],
+            apellido :['', []],
+            email:['', []],
+            imagen:['', []]
+        })
+
     }
 
     update(id: string) {
@@ -99,13 +111,33 @@ export class DashboardUserProductsComponent {
         this.pruductosService.getAll().subscribe({
           next: (resApi: any) => {
             console.log(resApi);
-            this.products = resApi;
+            this.products = resApi
              // Inicialmente mostramos todos
           },
           error: () => {
             console.error("Error al cargar los productos");
           }
+
         });
+        console.log(this.usuarios);
+
+        if (sessionStorage.getItem('info')== undefined||null){
+            this.router.navigate(['login'])
+        }
+
+        this.userService.traerUsuarios().subscribe({
+            next:(resApi: any)=> {
+                console.log(resApi);
+            this.usuarios=resApi
+
+
+            },
+            error:(error: any)=> {
+
+            }
+        })
+
+
       }
 
 
@@ -154,6 +186,93 @@ export class DashboardUserProductsComponent {
             });
 
       }
+    //   USUARIOS
+    // ngOnInit (){
+    //         // if (sessionStorage.getItem('info')== undefined||null){
+    //         //     this.router.navigate(['login'])
+    //         // }
+
+    //         // this.userService.traerUsuarios().subscribe({
+    //         //     next:(resApi: any)=> {
+    //         //         console.log(resApi);
+    //         //     this.usuarios=resApi
+
+
+    //         //     },
+    //         //     error:(error: any)=> {
+
+    //         //     }
+    //         // })
+    //     }
+        eliminarU (id: string){
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    this.userService.eliminarUsuario(id).subscribe({
+                        next:(resApi: any)=> {
+                        this.ngOnInit()
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Your file has been deleted.",
+                            icon: "success"
+                          });
+                        },
+                        error:(error: any)=> {
+
+                        }
+
+                    })
+
+                }
+              });
+
+        }
+
+        actualizar (id:string){
+            this.userService.actualizarUsuario(id, this.formEditUsers.value).subscribe({
+                next:(resApi: any)=> {
+                    console.log(this.formEditUsers.value);
+                    this.ngOnInit()
+
+                   alert("editado");
+
+                },
+                error:(error: any)=> {
+                    console.log(error);
+
+                }
+
+
+            })
+        }
+        obtenerUnUsuario (id: string) {
+            return this.userService.obtenerUnUsuario(id).subscribe({
+                next:(resApi: any)=> {
+                    console.log("usuario obtenido");
+                    this.formEditUsers.setValue({
+                        nombre:resApi.nombre,
+                        apellido:resApi.apellido,
+                        email:resApi.email,
+                        imagen:resApi.imagen
+                    })
+
+
+
+                },
+                error:(error: any)=> {
+                    console.log(error);
+
+                }
+            })
+        }
+
   }
 
 

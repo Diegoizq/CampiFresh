@@ -57,14 +57,14 @@ export class NavbarComponent {
         if (!this.estado) {
             this.menuItems = [
                 ...baseItems,
-                { path: '/login', title: 'Iniciar Sesión' }
+
             ];
         }
         // Si está logueado como admin
         else if (this.roll) {
             this.menuItems = [
                 ...baseItems,
-                { path: '/productosAdm', title: 'Productos Admin' },
+                // { path: '/productosAdm', title: 'Productos Admin' },
                 { path: '/dashboard', title: 'Dashboard' }
             ];
         }
@@ -90,6 +90,7 @@ logout() {
 
 
   // Añade esta línea
+
 
 
 
