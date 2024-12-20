@@ -4,7 +4,7 @@
       <a [routerLink]="['/inicio']" class="logo">
         <img src="image-Photoroom.png" alt="Logo">
         <span>CampiFresh</span>
-        
+
       </a>
 
       <!-- Botón hamburguesa -->
@@ -37,11 +37,11 @@
 
         <div >
             @if (!estado) {
-                <a routerLink="/login">Inicio Sesion</a>
+                <button class="bta nav-link btn"  routerLink="/login">Inicio Sesion</button>
 
             }
             @if(estado){
-                <a (click)="logout()">logout</a>
+                <button class="nav-link btn btn-white"  (click)="logout()">logout</button>
             }
         </div>
       </ul>
