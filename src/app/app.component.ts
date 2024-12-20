@@ -4,12 +4,15 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ButtonCarritoComponent } from './components/button-carrito/button-carrito.component';
+import { CardsComponent } from './components/public/cards/cards.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet, NavbarComponent, FooterComponent,ButtonCarritoComponent],
+    RouterOutlet, NavbarComponent, FooterComponent,ButtonCarritoComponent, CardsComponent
+
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

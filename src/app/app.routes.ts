@@ -14,6 +14,7 @@ import { SobrenosotrosComponent } from './components/sobrenosotros/sobrenosotros
 export const routes: Routes = [
     {path:"", pathMatch: "full", redirectTo:"home"},
     {path:"home", component:HomeComponent},
+    {path:"imagenes",component:ImagenesComponent},
     {path: "login", component:LoginComponent},
     {path: "productos", component:ProductosComponent},
     {path: "productosAdm", component:ProductosAdminComponent},

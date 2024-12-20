@@ -1,8 +1,162 @@
+/* Reset global para eliminar márgenes y rellenos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  /* FontAwesome Icons */
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+  /* Estilos para el body */
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+  }
 
-.imgn {
-width: 1519px;
-height: 400px;
-}
+  /* Sección de bienvenida */
+  .home {
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-image: url('https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+  }
+
+  .home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Filtro oscuro para hacer el texto legible */
+    z-index: 1;
+  }
+
+  .home-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+  }
+
+  .home h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la legibilidad */
+  }
+
+  .home p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+
+  .btn-primary {
+    padding: 12px 30px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #2980b9; /* Cambio de color al pasar el ratón */
+  }
+
+  /* Sección de productos */
+  .productos {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .productos h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+
+  .productos-lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .producto {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .producto img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .producto h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .producto p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #555;
+  }
+
+  .producto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Diseño responsive */
+  @media (max-width: 768px) {
+    .home h1 {
+      font-size: 2.8rem;
+    }
+
+    .home p {
+      font-size: 1.3rem;
+    }
+
+    .productos-lista {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .producto {
+      padding: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .home h1 {
+      font-size: 2.2rem;
+    }
+
+    .home p {
+      font-size: 1.1rem;
+    }
+
+    .productos-lista {
+      grid-template-columns: 1fr;
+    }
+
+    .producto {
+      padding: 10px;
+    }
+  }
+
