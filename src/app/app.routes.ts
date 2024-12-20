@@ -11,6 +11,8 @@ import { DashboardUserProductsComponent } from './components/dashboard-user-prod
 import { DescuentosComponent } from './components/descuentos/descuentos.component';
 import { SobrenosotrosComponent } from './components/sobrenosotros/sobrenosotros.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { GraciasComponent } from './components/gracias/gracias.component';
+import { CarritoComponent } from './components/pagarcarrito/carrito.component';
 
 
 export const routes: Routes = [
@@ -26,6 +28,8 @@ export const routes: Routes = [
     {path: "sobre-nosotros", component:SobrenosotrosComponent},
     {path: "dashboard", component:DashboardUserProductsComponent},
     {path: "contacto", component:ContactoComponent},
+    {path: "gracias", component:GraciasComponent},
+    {path: "pago", component:CarritoComponent},
     {path: "404", component:Error404Component},
     {path: "**",pathMatch: "full", redirectTo:"404"}
 ];
