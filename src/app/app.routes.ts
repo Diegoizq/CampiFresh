@@ -9,6 +9,7 @@ import { ProductosAdminComponent } from './dashboard/productos-admin/productos-a
 import { DashboardUserProductsComponent } from './components/dashboard-user-products/dashboard-user-products.component';
 import { DescuentosComponent } from './components/descuentos/descuentos.component';
 import { SobrenosotrosComponent } from './components/sobrenosotros/sobrenosotros.component';
+import { ImagenesComponent } from './components/imagenes/imagenes.component';
 
 
 export const routes: Routes = [
