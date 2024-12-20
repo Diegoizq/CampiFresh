@@ -1,0 +1,91 @@
+/* Estilos generales del footer */
+.footer-info {
+    background-color: #28A745; /* Fondo oscuro para contraste */
+    color: #ecf0f1; /* Texto claro */
+    padding: 50px 20px;
+    text-align: left;
+  }
+
+  /* Contenedor principal del footer */
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Estilos para cada sección */
+  .footer-info-section {
+    flex: 1;
+    min-width: 250px; /* Asegura que las secciones no sean demasiado estrechas */
+  }
+
+  .footer-info-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .footer-info-section p,
+  .footer-info-section ul {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .footer-info-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-info-section ul li {
+    margin: 8px 0;
+  }
+
+  .footer-info-section ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-info-section ul li a:hover {
+    color: #19262f; /* Color al pasar el ratón sobre los enlaces */
+  }
+
+  /* Estilos de redes sociales */
+  .social-icons {
+    display: flex;
+    gap: 20px;
+  }
+
+  .social-icon {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .social-icon:hover {
+    color: #343a3f; /* Efecto de hover para redes sociales */
+  }
+
+  /* Estilos para la parte inferior con derechos de autor */
+  .footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #08461676;
+    font-size: 14px;
+  }
+
+  .footer-bottom p {
+    margin: 0;
+  }
+  .titulo{
+    font-family: Adamina;
+  }
+  .estilo{
+    font-family: lato;
+  }
+

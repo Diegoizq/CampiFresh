@@ -1,7 +1,7 @@
 <ng-container *ngIf="BtnCarritoDeCompras">
     <button class="cart-toggle" (click)="toggleCart()">
         <i class="fa-solid fa-cart-shopping"></i>
-        <span class="cart-count">{{0}}</span>
+        <span class="cart-count">{{totalC}}</span>
     </button>
 
     <div class="cart-sidebar" [class.active]="isCartOpen">
@@ -32,7 +32,7 @@
             <span>Total:</span>
             <span>${{this.total}}</span>
         </div>
-        <button class="checkout-button">
+        <button class="checkout-button" routerLink="/pago">
             Proceder al pago
         </button>
     </div>

@@ -63,9 +63,20 @@ export class ProductosComponent {
 
       agregarCarrito(producto:any){
         console.log("producto a agregaar", producto);
-
         this.carritoService.agregarProducto(producto)
-        alert("producto agregado")
+        Swal.fire({
+          toast: true,
+          position: 'center',
+          icon: 'success',
+          title: `${producto.nombre} agregado al carrito`,
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        });
 
       }
 
