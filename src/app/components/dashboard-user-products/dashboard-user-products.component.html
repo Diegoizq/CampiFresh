@@ -1,0 +1,271 @@
+<div class="dashboard-container">
+    <app-sidebar (sectionChange)="changeSection($event)"></app-sidebar>
+
+    <div class="main-content">
+        <div class="content-area">
+            <!-- Sección de Productos -->
+            <div class="dashboard-section" *ngIf="currentSection === 'productos'">
+                <div class="section-header">
+                    <h2>Gestión de Productos</h2>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BotonNuevo">
+                        <i class="fas fa-plus"></i> Nuevo Producto
+                    </button>
+                    <div  class="modal" id="BotonNuevo" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+                      <div [formGroup]="formEdit" class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="formModalLabel">Formulario de Producto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="productForm">
+                              <div class="mb-3">
+                                <label  for="nombre" class="form-label">Nombre</label>
+                                <input formControlName="nombre" type="text" class="form-control" id="nombre" name="nombre" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="tipo" class="form-label">Tipo</label>
+                                <input formControlName="tipo" type="text" class="form-control" id="tipo" name="tipo" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="precio" class="form-label">Precio</label>
+                                <input formControlName="precio" type="number" class="form-control" id="precio" name="precio" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="stock" class="form-label">Stock</label>
+                                <input formControlName="stock" type="number" class="form-control" id="stock" name="stock" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="descripcion" class="form-label">Descripción</label>
+                                <textarea formControlName="descripcion" class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+                              </div>
+                              <div class="mb-3">
+                                <label for="imagen" class="form-label">Imagen</label>
+                                <input formControlName="imagen"  class="form-control" id="imagen" name="imagen" accept="image/*" required>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button  type="button" class="btn btn-primary" form="productForm">Guardar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Stock</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of products">
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="{{producto.imagen}}">
+                                        <td>{{producto.nombre}}</td>
+                                    </div>
+                                </td>
+                                <td>{{producto.tipo}}</td>
+                                <td>{{producto.stock}}</td>
+                                <td>{{producto.precio}}</td>
+                                <td>
+                                    <span class="badge bg-success">Activo</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary me-2" (click)="getProducto(producto._id)"  data-bs-toggle="modal" [attr.data-bs-target]="'#'+producto._id">
+
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger" (click)="eliminar(producto._id)">
+
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <div *ngFor="let item of products" class="modal" id="{{item._id}}" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+                <div [formGroup]="formEdit" class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="formModalLabel">Formulario de Producto</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form id="productForm">
+                        <div class="mb-3">
+                          <label  for="nombre" class="form-label">Nombre</label>
+                          <input formControlName="nombre" type="text" class="form-control" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="tipo" class="form-label">Tipo</label>
+                          <input formControlName="tipo" type="text" class="form-control" id="tipo" name="tipo" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="precio" class="form-label">Precio</label>
+                          <input formControlName="precio" type="number" class="form-control" id="precio" name="precio" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="stock" class="form-label">Stock</label>
+                          <input formControlName="stock" type="number" class="form-control" id="stock" name="stock" required>
+                        </div>
+                        <div class="mb-3">
+                          <label for="descripcion" class="form-label">Descripción</label>
+                          <textarea formControlName="descripcion" class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                          <label for="imagen" class="form-label">Imagen</label>
+                          <input formControlName="imagen"  class="form-control" id="imagen" name="imagen" accept="image/*" required>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button (click)="update(item._id)" type="button" class="btn btn-primary" form="productForm">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            <!-- Sección de Usuarios -->
+            <div  class="dashboard-section" *ngIf="currentSection === 'usuarios'">
+                <div class="section-header">
+                    <h2>Gestión de Usuarios</h2>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#BotonNuevoUsers">
+                        <i class="fas fa-plus"></i> Nuevo Usuario
+                    </button>
+
+                    <div  class="modal" id="BotonNuevoUsers" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+                      <div [formGroup]="formEdit" class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="formModalLabel">Formulario de Producto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form id="productForm">
+                              <div class="mb-3">
+                                <label  for="nombre" class="form-label">Nombre</label>
+                                <input formControlName="nombre" type="text" class="form-control" id="nombre" name="nombre" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="tipo" class="form-label">Tipo</label>
+                                <input formControlName="tipo" type="text" class="form-control" id="tipo" name="tipo" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="precio" class="form-label">Precio</label>
+                                <input formControlName="precio" type="number" class="form-control" id="precio" name="precio" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="stock" class="form-label">Stock</label>
+                                <input formControlName="stock" type="number" class="form-control" id="stock" name="stock" required>
+                              </div>
+                              <div class="mb-3">
+                                <label for="descripcion" class="form-label">Descripción</label>
+                                <textarea formControlName="descripcion" class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+                              </div>
+                              <div class="mb-3">
+                                <label for="imagen" class="form-label">Imagen</label>
+                                <input formControlName="imagen"  class="form-control" id="imagen" name="imagen" accept="image/*" required>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button  type="button" class="btn btn-primary" form="productForm">Guardar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div  class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr >
+                                <th>Usuario</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                                <th>Estado</th>
+                                <th>Última Conexión</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of usuarios">
+                                <td>
+                                    <div  class="user-cell">
+                                        <img src="assets/img/avatars/user1.jpg" alt="Usuario">
+                                        <span>{{item.nombre}}</span>
+
+                                    </div>
+                                </td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.role}}</td>
+                                <td>
+                                    <span class="badge bg-success">Activo</span>
+                                </td>
+                                <td>2024-01-15 10:30</td>
+                                <td>
+                                    <button (click)="obtenerUnUsuario(item._id)" type="button" class="btn btn-success" data-bs-toggle="modal" [attr.data-bs-target]="'#'+item._id">
+                                        <i class="fas fa-edit"></i>
+                                      </button>
+                                    <!-- <button class="btn btn-sm btn-outline-primary me-2">
+                                        <i class="fas fa-edit"></i>
+                                    </button> -->
+                                    <button (click)="eliminarU(item._id)" class="btn btn-sm btn-outline-danger"  >
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+
+
+                                    <div class="modal fade" id="{{item._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h1  class="modal-title fs-5" id="exampleModalLabel">Editar usuario</h1>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form [formGroup]="formEditUsers" class="d-flex row">
+                                                    <label for="nombre">nuevo nombre</label>
+                                                    <input formControlName="nombre" type="text">
+                                                <label for="">nuevo apellido</label>
+                                                    <input formControlName="apellido" type="text">
+                                                <label for="">nuevo email</label>
+                                                    <input formControlName="email" type="email">
+                                                <label for="">agregar nueva imagen</label>
+                                                    <input formControlName="imagen" type="text">
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                              <button type="button" (click)="actualizar(item._id)" class="btn btn-primary">actualizar</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>

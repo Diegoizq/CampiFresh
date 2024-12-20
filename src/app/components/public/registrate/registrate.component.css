@@ -1,0 +1,102 @@
+:root {
+    --primary-color: #28a745;
+    --primary-dark: #1e7e34;
+    --primary-light: #48c774;
+    --secondary-color: #6c757d;
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
+    --white: #ffffff;
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+
+  .login-container {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e9 100%);
+    background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+  }
+
+  .login-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.5s ease-out;
+    box-sizing: border-box;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .login-header h2 {
+    color: var(--dark-gray);
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+
+  .form-group label {
+    color: var(--dark-gray);
+    font-weight: 500;
+  }
+
+  .form-group input {
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    transition: var(--transition);
+  }
+
+  .form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+    outline: none;
+  }
+
+  .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    transition: var(--transition);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(23, 193, 105, 0.2);
+  }
+
+  .register-link a {
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: var(--transition);
+  }
+
+  .register-link a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }

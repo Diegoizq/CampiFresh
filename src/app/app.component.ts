@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardsComponent } from './components/public/cards/cards.component';
+import { ButtonCarritoComponent } from "./components/button-carrito/button-carrito.component";
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,9 @@ import { CardsComponent } from './components/public/cards/cards.component';
     RouterOutlet,
     NavbarComponent,
     FooterComponent,
-    CardsComponent
-  ],
+    CardsComponent,
+    ButtonCarritoComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

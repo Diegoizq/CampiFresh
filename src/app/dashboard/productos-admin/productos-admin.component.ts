@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ProductosService } from '../../services/productos/productos.service';
+import { UsuarioService } from '../../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-productos-admin',
@@ -16,8 +17,10 @@ import { ProductosService } from '../../services/productos/productos.service';
 export class ProductosAdminComponent {
 products!: any
     pruductosService = inject(ProductosService)
+    userService = inject(UsuarioService)
     formProduct!: FormGroup
     fomrEdit!: FormGroup
+    usuarios:any[]=[]
 
     constructor (private fb: FormBuilder,
         private router : Router
@@ -36,7 +39,7 @@ products!: any
 
     }
     ngOnInit(){
-        if (sessionStorage.getItem('token') == undefined|| null) {
+        if (sessionStorage.getItem('info') == undefined|| null) {
             this.router.navigate(['login'])
         }
             this.pruductosService.getProductos().subscribe({
@@ -47,8 +50,17 @@ products!: any
                     console.log(error);
 
 
+
+
+
                 }
             })
+            
+
+
+
+
+
 
     }
     eliminar(id:string){

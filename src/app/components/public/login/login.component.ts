@@ -26,40 +26,60 @@ export class LoginComponent {
         })
     }
 
-    ngOnInit(){
-        if (sessionStorage.getItem('token'))
-            this.router.navigate(['home'])
-    }
+    // desecriptarToken(){
+    //     if (sessionStorage.getItem('token'))
+    //         this.userService.desencriptarToken().subscribe({
+    //             next:(resApi:any)=>{
+    //                 sessionStorage.setItem('roll', resApi.roll)
+    //             },
+    //             error:(error:any)=>{
+    //                 console.log(error);
 
+    //             }
+    //         })
+    // }
+    ngOnInit(){
+        if (sessionStorage.getItem('info') ) {
+            this.router.navigate(['/home'])
+
+        }
+    }
     login(){
-        console.log(this.formLogin.value);
-        console.log(this.formLogin.valid);
+
 
         if (this.formLogin.valid) {
             this.userService.iniciarSesion(this.formLogin.value).subscribe({
                 next:(resApi: any)=>{
+
                     let token= resApi
 
                     console.log(resApi);
+                // sessionStorage.setItem('token', token)
+                const info = { token: resApi.token, roll: resApi.user };
+                sessionStorage.setItem("info", JSON.stringify(info));
+                this.ngOnInit()
 
-
-                sessionStorage.setItem('token', token)
+                // this.desecriptarToken()
             Swal.fire({
-                            title: "can not create!",
-                            text: "Your file has not been created.",
-                            icon: "error"
+                title: "ingresado!",
+                        text: "clave correcta.",
+                        icon: "success"
+
+
                         })
-                        this.ngOnInit()
+
                 },
                 error:(error: any)=>{
 
                     Swal.fire({
-                        title: "ingresado!",
-                        text: "clave correcta.",
+                        title: "can not login!",
+                            text: "Ingreso denegado",
+                            icon:"error"
 
 
 
                     })
+                    // this.desecriptarToken()
                     console.log(error);
 
 
@@ -68,12 +88,12 @@ export class LoginComponent {
         } else {
            alert("formulario invalido")
            Swal.fire({
-            title: "can not create!",
-            text: "formulario incorrecto.",
+            title: "no es posible inicar sesion!",
+            text: "no es posible inicar sesion!",
             icon: "error"
         })
 
 
-        }console.log();
+        }
     }
 }
