@@ -64,7 +64,7 @@ export class NavbarComponent {
         else if (this.roll) {
             this.menuItems = [
                 ...baseItems,
-                { path: '/productosAdm', title: 'Productos Admin' },
+                // { path: '/productosAdm', title: 'Productos Admin' },
                 { path: '/dashboard', title: 'Dashboard' }
             ];
         }
