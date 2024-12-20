@@ -236,9 +236,10 @@ export class DashboardUserProductsComponent {
         }
 
         actualizar (id:string){
-            this.userService.actualizarUsuario(id, this.formEdit.value).subscribe({
+            this.userService.actualizarUsuario(id, this.formEditUsers.value).subscribe({
                 next:(resApi: any)=> {
-                    console.log(this.formEdit.value);
+                    console.log(this.formEditUsers.value);
+                    this.ngOnInit()
 
                    alert("editado");
 
@@ -255,7 +256,7 @@ export class DashboardUserProductsComponent {
             return this.userService.obtenerUnUsuario(id).subscribe({
                 next:(resApi: any)=> {
                     console.log("usuario obtenido");
-                    this.formEdit.setValue({
+                    this.formEditUsers.setValue({
                         nombre:resApi.nombre,
                         apellido:resApi.apellido,
                         email:resApi.email,
@@ -271,6 +272,7 @@ export class DashboardUserProductsComponent {
                 }
             })
         }
+        
   }
 
 
