@@ -18,6 +18,7 @@ export class ButtonCarritoComponent {
   BtnCarritoDeCompras= true;
   carrito: any[]=[]
   total: number=0;
+  totalC: number=0;
 
 
   //Vamos a ocultar el carrito en estas rutas
@@ -35,6 +36,9 @@ export class ButtonCarritoComponent {
       ).subscribe((event:any)=>{
         this.BtnCarritoDeCompras= !this.OcultarBtnCarrito.includes(event.url)
       });
+      this.carritoService.getCarrito().subscribe((carrito: any[]) => {
+        this.totalC = carrito.reduce((total, item) => total + item.cantidad, 0);
+      });
     }
 
 
@@ -51,7 +55,8 @@ toggleCart() {
 actualizarCarrito() {
   this.carritoService.getCarrito().subscribe((carrito: any) => {
     this.carrito = carrito;  // Ahora 'carrito' es un array de productos
-    this.total = this.carritoService.cacularTotal();  // Calculamos el total
+    this.total = this.carritoService.cacularTotal();
+    this.totalC = this.carritoService.cacularTotalC()  // Calculamos el total
     console.log('Carrito actualizado:', this.carrito);  // Verifica si el carrito está siendo actualizado
     console.log('Total:', this.total);  // Verifica si el total se calcula correctamente
   });

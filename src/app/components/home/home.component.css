@@ -1,178 +1,260 @@
-
-
-
-
-.carousel-inner{
-    height: 350px ;
-    overflow: hidden;
-}
-
-
-
-
-/* Reset global para eliminar márgenes y rellenos predeterminados */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.home-container {
+    width: 100%;
+    overflow-x: hidden;
   }
 
-  /* Estilos para el body */
-  body {
-    font-family: Andamina ;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-  }
-
-  /* Sección de bienvenida */
-  .home {
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-     /* Imagen de fondo */
+  /* Hero Section */
+  .hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('/assets/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
+    justify-content: center;
     text-align: center;
-    position: relative;
+    color: white;
   }
 
-  .home::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Filtro oscuro para hacer el texto legible */
-    z-index: 1;
-  }
-
-  .home-content {
-    position: relative;
-    z-index: 2;
+  .hero-content {
     max-width: 800px;
+    padding: 0 20px;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+
+  /* Productos Destacados */
+  .featured-products {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+  }
+
+  .featured-products h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #333;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .product-info {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .product-info h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .price {
+    color: #4CAF50;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* Beneficios */
+  .benefits {
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .benefit-card {
     padding: 20px;
   }
 
-  .home h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
+  .benefit-card i {
+    font-size: 2.5rem;
+    color: #4CAF50;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la legibilidad */
   }
 
-  .home p {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 30px;
-    line-height: 1.8;
+  .benefit-card h3 {
+    margin-bottom: 10px;
+    color: #333;
   }
 
+  /* Sobre Nosotros */
+  .about {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .about-text p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Botón */
   .btn-primary {
-    padding: 12px 30px;
-    background-color: #3498db;
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #4CAF50;
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 30px;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
   }
 
   .btn-primary:hover {
-    background-color: #2980b9; /* Cambio de color al pasar el ratón */
+    background-color: #45a049;
   }
 
-  /* Sección de productos */
-  .productos {
-    padding: 60px 20px;
-    background-color: #fff;
-    text-align: center;
-  }
-
-  .productos h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 40px;
-  }
-
-  .productos-lista {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-
-  .producto {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .producto img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-
-  .producto h3 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
-  .producto p {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #555;
-  }
-
-  .producto:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Diseño responsive */
+  /* Media Queries */
   @media (max-width: 768px) {
-    .home h1 {
-      font-size: 2.8rem;
+    .hero h1 {
+        font-size: 2.5rem;
     }
 
-    .home p {
-      font-size: 1.3rem;
+    .about-content {
+        grid-template-columns: 1fr;
     }
 
-    .productos-lista {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .producto {
-      padding: 15px;
+    .benefits {
+        grid-template-columns: 1fr;
     }
   }
 
   @media (max-width: 480px) {
-    .home h1 {
-      font-size: 2.2rem;
+    .hero h1 {
+        font-size: 2rem;
     }
 
-    .home p {
-      font-size: 1.1rem;
-    }
-
-    .productos-lista {
-      grid-template-columns: 1fr;
-    }
-
-    .producto {
-      padding: 10px;
+    .hero p {
+        font-size: 1rem;
     }
   }
 
-  .letras{
-    font-family: Adamina ;
 
+  /* Testimonios */
+  .testimonials {
+    padding: 80px 20px;
+    background-color: #ffffff;
+  }
+
+  .testimonials h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #333;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .testimonial-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .testimonial-image {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .testimonial-text {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .testimonial-card h4 {
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  .testimonial-role {
+    color: #4CAF50;
+    font-size: 0.9rem;
+  }
+
+  /* Actualiza los media queries para incluir los testimonios */
+  @media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
   }

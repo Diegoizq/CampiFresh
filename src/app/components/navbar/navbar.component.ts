@@ -47,7 +47,7 @@ export class NavbarComponent {
     updateMenuItems() {
         // Items básicos que siempre están presentes
         const baseItems = [
-            { path: '/inicio', title: 'Inicio' },
+            { path: '/home', title: 'Inicio' },
             { path: '/productos', title: 'Productos' },
             { path: '/sobre-nosotros', title: 'Sobre Nosotros' },
             { path: '/contacto', title: 'Contacto' }
