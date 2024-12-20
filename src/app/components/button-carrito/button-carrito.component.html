@@ -1,0 +1,43 @@
+<ng-container *ngIf="BtnCarritoDeCompras">
+    <button class="cart-toggle" (click)="toggleCart()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count">{{0}}</span>
+    </button>
+
+    <div class="cart-sidebar" [class.active]="isCartOpen">
+      <div class="cart-header">
+        <h3>Carrito de Compras</h3>
+        <button class="close-cart" (click)="toggleCart()">
+            <i class="fa-solid fa-times"></i>
+        </button>
+    </div>
+
+    <div class="cart-items">
+      <ul>
+        <li *ngFor="let producto of carrito">
+          <p>{{ producto.nombre }} ({{ producto.cantidad }})</p>
+          <p>Subtotal: {{ producto.precio * producto.cantidad | currency }}</p>
+          <button (click)="eliminarProducto(producto._id)">Eliminar</button>
+        </li>
+      </ul>
+        <!-- Aquí irán los items del carrito -->
+        <div class="cart-empty" *ngIf="true">
+            <i class="fa-solid fa-shopping-basket"></i>
+            <p>Tu carrito está vacío</p>
+        </div>
+    </div>
+
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span>${{this.total}}</span>
+        </div>
+        <button routerLink="/pagarC" class="checkout-button">
+            Proceder al pago
+        </button>
+    </div>
+  </div>
+        <!-- ... resto del código del carrito ... -->
+
+    <div class="cart-overlay" [class.active]="isCartOpen" (click)="toggleCart()"></div>
+  </ng-container>

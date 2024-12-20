@@ -36,7 +36,7 @@ products!: any
 
     }
     ngOnInit(){
-        if (sessionStorage.getItem('token') == undefined|| null) {
+        if (sessionStorage.getItem('info') == undefined|| null) {
             this.router.navigate(['login'])
         }
             this.pruductosService.getProductos().subscribe({
