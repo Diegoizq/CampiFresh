@@ -19,7 +19,7 @@
 
   /* Estilos para el body */
   body {
-    font-family: Andamina ;
+    font-family: Adamina ;
     line-height: 1.6;
     background-color: #f4f4f4;
   }
@@ -173,127 +173,139 @@
   }
 
   .letras{
-    font-family: Adamina ;
+    font-family: Adamina;
 
   }
 
 
-/* From Uiverse.io by Creatlydev */
-.card {
-    width: min(300px, 100%);
-    margin: auto;
-    background-color: #f4f5f2;
-    text-align: center;
-    border-top-left-radius: 4rem;
-    border: 2px solid #fff;
+
+
+/* Estilos generales para el contenedor de las tarjetas */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que las tarjetas se ajusten a nuevas filas si es necesario */
+    gap: 20px;
+    justify-content: space-between;  /* Espacio entre las tarjetas */
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;  /* Ancho máximo para las tarjetas */
+  }
+
+  .card {
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;  /* Asegura que las tarjetas ocupen el 100% del espacio en pantallas pequeñas */
+    max-width: 350px;  /* Tamaño máximo de las tarjetas */
     position: relative;
+    transition: transform 0.3s ease;
   }
 
-  .card::before {
-    content: "";
-    position: absolute;
-    height: 30px;
-    width: 120px;
-    background-color: #3db663;
-    top: 32px;
-    right: -2.5px;
-    -webkit-clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
-    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+  .card:hover {
+    transform: translateY(-5px);  /* Efecto hover */
   }
 
-  .card__body {
-    padding: 2rem 1.5rem;
-    max-width: 25ch;
-    margin: auto;
-  }
-
-  .card__title {
-    font-weight: 800;
-    color: #121513;
-    font-size: 1.25rem;
-    margin-block: 1.5rem 0.75rem;
-    font-family: lato;
-  }
-
-  .card__paragraph {
-    color: #303830;
-    font-size: 0.875rem;
-    font-family: lato;
-  }
-
+  /* Ribbon de la tarjeta */
   .card__ribbon {
-    margin-top: 1.5rem;
-    display: grid;
-    place-items: center;
-    height: 50px;
-    background-color: #3db663;
-    position: relative;
-    width: 110%;
-    left: -5%;
-    top: 10px;
-    position: relative;
-    border-radius: 0 0 2rem 2rem;
-  }
-
-  .card__ribbon::after,
-  .card__ribbon::before {
-    content: "";
     position: absolute;
-    width: 20px;
-    aspect-ratio: 1/1;
-    bottom: 100%;
-    z-index: -2;
-    background-color: #3db663;
-  }
-
-  .card__ribbon::before {
+    top: 0;
     left: 0;
-    transform-origin: left bottom;
-    transform: rotate(45deg);
-  }
-
-  .card__ribbon::after {
-    right: 0;
-    transform-origin: right bottom;
-    transform: rotate(-45deg);
+    background-color: #28A745;
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
   }
 
   .card__ribbon-label {
-    display: block;
-    width: 100px;
-    aspect-ratio: 1/1;
-    background-color: #fff;
-    position: relative;
-    transform: translateY(-50%);
-    border-radius: 50%;
-    border: 8px solid #3db663;
-    display: grid;
-    place-items: center;
-    font-weight: 900;
-    line-height: 1;
-    font-size: 1.5rem;
+    font-weight: bold;
   }
 
-  .card__ribbon-label::before,
-  .card__ribbon-label::after {
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    bottom: 50%;
+  .card__body {
+    padding: 20px;
+    text-align: center;
   }
 
-  .card__ribbon-label::before {
-    right: calc(100% + 4px);
-    border-bottom-right-radius: 20px;
-    box-shadow: 5px 5px 0 #3db663;
+  .card__icon {
+    font-size: 40px;
+    color: #28A745;
+    margin-bottom: 15px;
   }
 
-  .card__ribbon-label::after {
-    left: calc(100% + 4px);
-    border-bottom-left-radius: 20px;
-    box-shadow: -5px 5px 0 #3db663;
+  .card__title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
   }
+
+  .card__paragraph {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  /* Estilos responsivos para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .cards-container {
+      justify-content: center;  /* Centra las tarjetas en pantallas medianas */
+    }
+
+    .card {
+      max-width: 100%;  /* Asegura que las tarjetas ocupen el 100% del ancho en pantallas medianas */
+      margin: 10px 0;  /* Añade un margen entre las tarjetas */
+    }
+
+    .card__ribbon {
+      font-size: 14px;
+    }
+
+    .card__icon {
+      font-size: 30px;  /* Reduce el tamaño del icono */
+    }
+
+    .card__title {
+      font-size: 16px;  /* Reduce el tamaño del título */
+
+    }
+
+    .card__paragraph {
+
+        font-size: 13px;  /* Reduce el tamaño del párrafo */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cards-container {
+      padding: 10px;  /* Reduce el padding en pantallas pequeñas */
+    }
+
+    .card {
+      max-width: 100%;
+      margin: 10px 0;  /* Añade margen entre las tarjetas */
+    }
+
+    .card__ribbon {
+      font-size: 12px;  /* Reduce el tamaño del ribbon */
+    }
+
+    .card__icon {
+      font-size: 28px;  /* Ajusta el tamaño del icono para pantallas pequeñas */
+    }
+
+    .card__title {
+      font-size: 14px;  /* Ajusta el tamaño del título */
+    }
+
+    .card__paragraph {
+      font-size: 12px;  /* Ajusta el tamaño del párrafo */
+
+    }
+  }
+
+
   h2{
     font-family: Adamina;
   }
+
