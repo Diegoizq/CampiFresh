@@ -25,7 +25,7 @@ export class ProductosService {
         return this.http.delete(`${this.apiUrlP}/${id}`)
       }
      addProductos(body: any) {
-        return this.http.post(`${this.apiUrl}/crearProducto`, body)
+        return this.http.post(`${this.apiUrlP}`, body)
      }
      updateproductos(id: string, body: any){
         return this.http.put(`${this.apiUrlP}/${id}`,body )

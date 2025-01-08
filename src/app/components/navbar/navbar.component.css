@@ -183,6 +183,14 @@
     nav ul li a.active {
       background-color: rgba(255, 255, 255, 0.2);
     }
+    .bta{
+        display: block;
+      padding: 1rem;
+      width: 100%;
+      text-align: left;
+      border-radius: 4px;
+    
+    }
   }
 
 

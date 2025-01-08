@@ -21,6 +21,8 @@ export class DashboardUserProductsComponent {
     userService = inject(UsuarioService)
     formEdit!: FormGroup
     formEditUsers!: FormGroup
+    formRegister!: FormGroup
+    formCreate!: FormGroup
     usuarios:any[]=[]
 
     constructor(private fb: FormBuilder,private router : Router){
@@ -39,8 +41,23 @@ export class DashboardUserProductsComponent {
             email:['', []],
             imagen:['', []]
         })
+        this.formRegister = this.fb.group({
+            nombre: ['', [Validators.required]],
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', [Validators.required, Validators.minLength(6)]],
+            imagen: ['',[]]
+          })
+          this.formCreate= this.fb.group({
+            nombre:["", []],
+            tipo:[" ",[]],
+            precio:[" ",[]],
+            stock:[" ", []],
+            descripcion:[" ",[]],
+            imagen:[" ", []]
+          })
 
     }
+
 
     update(id: string) {
         this.pruductosService.updateproductos(id, this.formEdit.value).subscribe({
@@ -238,10 +255,28 @@ export class DashboardUserProductsComponent {
         actualizar (id:string){
             this.userService.actualizarUsuario(id, this.formEditUsers.value).subscribe({
                 next:(resApi: any)=> {
-                    console.log(this.formEditUsers.value);
-                    this.ngOnInit()
+                    const modalElement = document.getElementById(id);
+                if (modalElement) {
+                    modalElement.style.display = 'none';
+                    modalElement.classList.remove('show');
+                }
 
-                   alert("editado");
+                // Remover el backdrop
+                const backdrop = document.querySelector('.modal-backdrop');
+                if (backdrop) {
+                    backdrop.parentNode?.removeChild(backdrop);
+                }
+
+                // Remover la clase modal-open del body
+                document.body.classList.remove('modal-open');
+                document.body.style.overflow = '';
+                document.body.style.paddingRight = '';
+
+                // Recargar los datos
+                this.ngOnInit();
+            
+
+
 
                 },
                 error:(error: any)=> {
@@ -272,7 +307,64 @@ export class DashboardUserProductsComponent {
                 }
             })
         }
+        register (){
+            console.log(this.formRegister.value);
+
+            this.userService.crearUsuario(this.formRegister.value).subscribe({
+                next:(resApi: any)=>{
+
+
+
+                    Swal.fire({
+                        icon:"success",
+                        title:"welcome manito",
+                        text:"usuario creado existosamente"
+                    })
+
+                },
+                error:(error: any)=>{
+                    console.log(error);
+                    Swal.fire({
+                        icon:"error",
+                        title:"usuario no registrado",
+                        text:"{error}"
+                })
+
+
+                }
+
+        })
+        }
+
+    create (){
+        console.log(this.formCreate.value);
+
+        this.pruductosService.addProductos(this.formCreate.value).subscribe({
+            next:(resApi: any)=>{
+                location.reload()
+
+
+                Swal.fire({
+                    icon:"success",
+                    title:"producto creado exitosamente",
+                    text:"{error}"
+                })
+
+
+            },
+            error:(error: any)=>{
+                console.log(error);
+                Swal.fire({
+                    icon:"error",
+                    title:"producto no creado",
+                    text:"{error}"
+            })
+
+
+            }
+
+    })
+    }
 
   }
-
 
